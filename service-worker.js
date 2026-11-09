@@ -1,4 +1,4 @@
-const CACHE_NAME = 'batikfit-github-v3';
+const CACHE_NAME = 'batiks-github-v3';
 const APP_SHELL = [
   './',
   './index.html',
