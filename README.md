@@ -1,91 +1,32 @@
-# BatikFit — Personal Rhythm
+# BatikFit — GitHub Pages PWA
 
-BatikFit adalah fitness dan nutrition tracker personal dengan tampilan batik minimalis dark mode. Aplikasi ini berjalan sebagai **single-page static app** tanpa backend.
+Paket ini siap diunggah ke repository GitHub Pages.
 
-## File utama
+## Upload
 
-`index.html` adalah entry point utama aplikasi. Cukup buka file tersebut di browser untuk menjalankan demo.
+1. Buat repository baru di GitHub.
+2. Upload seluruh isi folder ini ke root repository.
+3. Pastikan file `index.html` berada langsung di root, bukan di dalam folder tambahan.
+4. Buka **Settings → Pages**.
+5. Pilih **Deploy from a branch**, branch `main`, folder `/root`.
+6. Tunggu deployment selesai.
 
-## Install sebagai aplikasi
+## Instal di Android
 
-Buka aplikasi melalui HTTPS (misalnya GitHub Pages), lalu pilih **Install app** atau **Tambahkan ke layar utama** dari menu browser. Service worker akan menyimpan shell aplikasi agar dapat dibuka kembali saat offline.
+Buka URL GitHub Pages menggunakan Chrome Android, tunggu sampai selesai dimuat, lalu pilih menu tiga titik → **Install app** atau **Add to Home screen**.
 
-## Penyimpanan data
+## Instal di iPhone
 
-Semua input disimpan di `localStorage` browser:
+Buka URL menggunakan Safari → Share → **Add to Home Screen**.
 
-- Checklist kebiasaan harian
-- Langkah
-- Kalori
-- Protein
-- Air
-- Catatan harian
+## Shift yang tersedia
 
-Tidak ada database, server, API key, atau dependensi eksternal. Data berada di browser/perangkat yang digunakan. Jika cache/site data browser dihapus, data lokal ikut terhapus.
+Paket ini mencakup shift P (09:00–17:00), FULL (09:00–22:00), LK2 (09:00–19:00), 11 (11:00–19:00), 12 (12:00–20:00), 12L (12:00–22:00), S (14:00–22:00), dan OFF.
 
-## Jalankan lokal
+## Catatan sinkronisasi
 
-Bisa langsung double-click `index.html`, atau gunakan server lokal:
+Versi ini menyimpan data lokal di browser melalui localStorage. Artinya data desktop dan mobile belum otomatis sama. Untuk sinkronisasi antarperangkat, tambahkan login dan database online seperti Supabase atau Firebase.
 
-```bash
-python3 -m http.server 4173
-```
+## Update berikutnya
 
-Kemudian buka `http://localhost:4173`.
-
-## Upload ke GitHub
-
-1. Buat repository GitHub baru.
-2. Upload `index.html` dan `README.md` ke root repository.
-3. Untuk membuatnya menjadi website, aktifkan **Settings → Pages → Deploy from branch → main → /root**.
-4. Untuk mengunduh aplikasinya, pilih **Code → Download ZIP** pada repository tersebut.
-
-Karena aplikasi hanya terdiri dari file statis, hasil ZIP dapat dibuka dan dijalankan offline dengan membuka `index.html`.
-
-## Catatan
-
-Aplikasi ini adalah demo mandiri. Proyek BatikFit WebDev utama tetap terpisah dari folder ini.
-
-## Workout cards
-
-Carousel workout dapat di-swipe horizontal. Pengguna dapat menambah kartu workout custom berisi nama, deskripsi, dan beberapa latihan; kartu tersimpan di `localStorage` dan dapat dihapus atau di-undo.
-
-## Aksi tracker
-
-Demo mendukung edit jadwal, tambah hari, tambah makanan, input kalori/protein/carbs/fats/air/langkah/catatan, hapus makanan, hapus tracker hari ini, dan **Undo terakhir**. Perubahan disimpan lokal di browser melalui `localStorage`.
-
-Jadwal otomatis menyorot hari aktual berdasarkan tanggal perangkat, jadi ketika hari ini Kamis baris Kamis akan menjadi highlight.
-
-Card pertama Ringkasan mengikuti hari aktual, shift, rutinitas, dan jam workout dari jadwal yang tersimpan.
-
-Timeline dapat ditambah melalui tombol plus, diurutkan berdasarkan waktu, dan dapat di-hold untuk memilih Edit atau Hapus. Kebiasaan custom juga dapat ditambah melalui tombol plus.
-
-Card header Jadwal dan Target Nutrisi menggunakan alignment inline; highlight hari diperlebar agar isi tidak tertekan.
-
-Pada layar smartphone, mode calm mengurangi motif batik, border, shadow, nested card, dan padding agar konten tidak terasa bertumpuk.
-
-Semua input numerik mendukung bilangan bulat dan desimal dengan `step="any"`, termasuk input nutrisi dan makanan.
-
-Setelah setiap input, ringkasan langsung diperbarui dan aplikasi mengarahkan pengguna ke progress atau jadwal yang relevan.
-
-Target Nutrisi dapat diklik untuk mengubah kalori, protein, karbohidrat, lemak, dan gula; progress menampilkan status to accomplish, Target accomplished, atau Warning, Overtarget detected.
-
-Shift tersedia: P (09:00–17:00), LK2 (09:00–19:00), 11 (11:00–19:00), 12 (12:00–20:00), 12L (12:00–22:00), dan S (14:00–22:00). Pergantian tanggal mengarsipkan hari sebelumnya dan me-reset tracker harian.
-
-Shift OFF tersedia sebagai hari libur. Riwayat kalender dapat dihapus permanen melalui tombol minus setelah konfirmasi; reset tanggal juga mengosongkan makanan, timeline, checklist, dan status workout harian.
-
-Fitur Undo terakhir telah dihapus; penghapusan riwayat kalender tetap menggunakan konfirmasi hapus permanen.
-
-Page aktif bertahan saat refresh; page Workout memiliki grafik berat badan 7 hari dengan carry-forward, dan Timeline juga tersedia di page Jadwal. Progress langkah memakai cincin air dengan target 2700 liter.
-
-Reset harian mengosongkan seluruh timeline dan checklist tanpa sisa strikethrough; Timeline pada page Jadwal memiliki tombol plus sendiri.
-
-Page Workout memakai layout dua kolom desktop (library workout + grafik berat) dan satu kolom smartphone, dengan overflow horizontal dikunci pada viewport.
-
-Card progress menampilkan 8000 jalan dan 2700 liter di kanan atas; card Workout dan grafik berat dirapatkan dalam satu baris desktop tanpa ruang kosong berlebih.
-
-Struktur Workout menggunakan wrapper normal di dalam main.main; header panel, carousel, grafik, dan tombol tetap berada dalam alur dokumen tanpa overlap atau keluar viewport.
-
-Final layout rule: Workout dan Input menggunakan normal flow main.main, panel heading diikuti card langsung, tanpa position/float/overflow yang dapat menabrak teks.
-
-DOM mount repair memastikan semua section page-panel (termasuk Workout dan Input) menjadi anak langsung main.main sebelum navigasi dirender.
+Jika mengubah file aplikasi, naikkan nilai `CACHE_NAME` di `service-worker.js`, misalnya dari `batikfit-github-v3` menjadi `batikfit-github-v3`, agar perangkat mengambil versi terbaru.

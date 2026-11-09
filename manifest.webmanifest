@@ -1,27 +1,15 @@
 {
   "name": "BatikFit — Personal Rhythm",
   "short_name": "BatikFit",
-  "description": "Fitness dan nutrition tracker personal dengan ritme shift, workout, dan meal timing.",
-  "lang": "id-ID",
-  "start_url": "./",
+  "description": "Personal fitness, nutrition, workout, and daily rhythm tracker.",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "theme_color": "#171315",
   "background_color": "#171315",
-  "categories": ["health", "fitness", "lifestyle"],
+  "theme_color": "#171315",
+  "orientation": "portrait",
   "icons": [
-    {
-      "src": "./icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "./icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
   ]
 }
