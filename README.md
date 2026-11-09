@@ -29,4 +29,4 @@ Versi ini menyimpan data lokal di browser melalui localStorage. Artinya data des
 
 ## Update berikutnya
 
-Jika mengubah file aplikasi, naikkan nilai `CACHE_NAME` di `service-worker.js`, misalnya dari `batikfit-github-v3` menjadi `batikfit-github-v3`, agar perangkat mengambil versi terbaru.
+Jika mengubah file aplikasi, naikkan nilai `CACHE_NAME` di `service-worker.js`, misalnya dari `batiks-github-v4` menjadi `batiks-github-v5`, agar perangkat mengambil versi terbaru.
